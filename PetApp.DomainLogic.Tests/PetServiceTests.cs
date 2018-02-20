@@ -503,6 +503,34 @@ namespace PetApp.DomainLogic.Tests
 		}
 
 		[Fact]
+		public void GetClassifiedCatInformationAsync_TwoGendersInListOneOwnerHasNullPets_CanFindAllTheCatsForMaleGender()
+		{
+			//Arrange
+			var repoResult = GetTwoGenderValues();
+			repoResult.PetOwners.Add(new Person()
+			{
+				Age = 58,
+				Name = "Null Pet Number",
+				Gender = "Male",
+				Pets = null
+			});
+
+			var petRepository = new Mock<IPetRepository>();
+			petRepository.Setup(x => x.GetPetOwnersAsync(url))
+				.Returns(Task.FromResult(repoResult));
+			var service = new PetService(petRepository.Object);
+
+			//Act
+			var result = service.GetClassifiedCatInformationAsync(url).Result.MaleOwnerCats.ToList();
+
+			//Assert
+			Assert.Equal(3, result.Count);
+			Assert.Equal("chowder", result[0]);
+			Assert.Equal("mouse trap", result[1]);
+			Assert.Equal("wallace", result[2]);
+		}
+
+		[Fact]
 		public void GetClassifiedCatInformationAsync_TwoGendersInListWithDifferingGenderCase_CanFindAllTheCatsForFemaleGender()
 		{
 			//Arrange

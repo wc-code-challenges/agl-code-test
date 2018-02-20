@@ -3,6 +3,7 @@ using Moq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System;
+using System.Collections.Generic;
 
 namespace PetApi.Sdk.Tests
 {
@@ -10,25 +11,22 @@ namespace PetApi.Sdk.Tests
     {
 		public PetRepositoryTests()
 		{
-			correctUrlResponse = new PetApiResponse()
+			correctUrlResponse = new List<Person>()
 			{
-				PetOwners = new System.Collections.Generic.List<Person>()
+				new Person()
+				{
+					Age = 25,
+					Gender = "Male",
+					Name = "Peter Pan",
+					Pets = new List<Pet>()
 					{
-						new Person()
+						new Pet()
 						{
-							Age = 25,
-							Gender = "Male",
-							Name = "Peter Pan",
-							Pets = new System.Collections.Generic.List<Pet>()
-							{
-								new Pet()
-								{
-									Name = "Rex",
-									Type = "cat"
-								}
-							}
+							Name = "Rex",
+							Type = "cat"
 						}
 					}
+				}
 			};
 		}
 
@@ -36,14 +34,14 @@ namespace PetApi.Sdk.Tests
 
 		const string url = "http://anyexample.com/resource";
 
-		readonly PetApiResponse correctUrlResponse; 
+		readonly List<Person> correctUrlResponse; 
 
-		private Task<PetApiResponse> MockRequestFunction(HttpRequestMessage request)
+		private Task<List<Person>> MockRequestFunction(HttpRequestMessage request)
 		{
 			if (request.RequestUri.ToString().ToUpper() == url.ToUpper())
 				return Task.FromResult(correctUrlResponse);
 
-			return Task.FromResult(new PetApiResponse());
+			return Task.FromResult(new List<Person>());
 		}
 
 		#endregion
@@ -53,8 +51,8 @@ namespace PetApi.Sdk.Tests
 		{
 			//Arrange
 			var requestProcessor = new Mock<IHttpRequestProcessor>();
-			requestProcessor.Setup(x => x.ProcessRequestAsync<PetApiResponse>(It.IsAny<HttpRequestMessage>()))
-				.Returns(Task.FromResult(new PetApiResponse()));
+			requestProcessor.Setup(x => x.ProcessRequestAsync<List<Person>>(It.IsAny<HttpRequestMessage>()))
+				.Returns(Task.FromResult<List<Person>>(null));
 			var petRepository = new PetRepository(requestProcessor.Object);
 
 			//Act & Assert
@@ -66,8 +64,8 @@ namespace PetApi.Sdk.Tests
 		{
 			//Arrange
 			var requestProcessor = new Mock<IHttpRequestProcessor>();
-			requestProcessor.Setup(x => x.ProcessRequestAsync<PetApiResponse>(It.IsAny<HttpRequestMessage>()))
-				.Returns(Task.FromResult(new PetApiResponse()));
+			requestProcessor.Setup(x => x.ProcessRequestAsync<List<Person>>(It.IsAny<HttpRequestMessage>()))
+				.Returns(Task.FromResult<List<Person>>(null));
 			var petRepository = new PetRepository(requestProcessor.Object);
 
 			//Act & Assert
@@ -79,8 +77,8 @@ namespace PetApi.Sdk.Tests
 		{
 			//Arrange
 			var requestProcessor = new Mock<IHttpRequestProcessor>();
-			requestProcessor.Setup(x => x.ProcessRequestAsync<PetApiResponse>(It.IsAny<HttpRequestMessage>()))
-				.Returns(Task.FromResult(new PetApiResponse()));
+			requestProcessor.Setup(x => x.ProcessRequestAsync<List<Person>>(It.IsAny<HttpRequestMessage>()))
+				.Returns(Task.FromResult<List<Person>>(null));
 			var petRepository = new PetRepository(requestProcessor.Object);
 
 			//Act & Assert
@@ -92,7 +90,7 @@ namespace PetApi.Sdk.Tests
 		{
 			//Arrange
 			var requestProcessor = new Mock<IHttpRequestProcessor>();
-			requestProcessor.Setup(x => x.ProcessRequestAsync<PetApiResponse>(It.IsAny<HttpRequestMessage>()))
+			requestProcessor.Setup(x => x.ProcessRequestAsync<List<Person>>(It.IsAny<HttpRequestMessage>()))
 				.Returns((HttpRequestMessage request) => MockRequestFunction(request));
 			var petRepository = new PetRepository(requestProcessor.Object);
 

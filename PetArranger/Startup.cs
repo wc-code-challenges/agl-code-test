@@ -8,6 +8,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
+using PetApi.Sdk;
+using PetApp.DomainLogic;
+
 namespace PetArranger
 {
     public class Startup
@@ -29,7 +32,13 @@ namespace PetArranger
         {
             // Add framework services.
             services.AddMvc();
-        }
+			//add configuration
+			services.AddSingleton<IConfiguration>(Configuration);
+			//Add custom App services
+			services.AddTransient<IHttpRequestProcessor, HttpRequestProcessor>();
+			services.AddTransient<IPetRepository, PetRepository>();
+			services.AddTransient<IPetService, PetService>();
+		}
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)

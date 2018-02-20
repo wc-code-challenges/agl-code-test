@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetApp.DomainLogic", "PetAp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetApp.DomainLogic.Tests", "PetApp.DomainLogic.Tests\PetApp.DomainLogic.Tests.csproj", "{E7477268-2859-447E-9617-152A4F0A1153}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetArranger.Tests", "PetArranger.Tests\PetArranger.Tests.csproj", "{6F486D9F-DEC6-4E90-9927-F396F4F4ADBA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{E7477268-2859-447E-9617-152A4F0A1153}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7477268-2859-447E-9617-152A4F0A1153}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E7477268-2859-447E-9617-152A4F0A1153}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F486D9F-DEC6-4E90-9927-F396F4F4ADBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F486D9F-DEC6-4E90-9927-F396F4F4ADBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F486D9F-DEC6-4E90-9927-F396F4F4ADBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F486D9F-DEC6-4E90-9927-F396F4F4ADBA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
