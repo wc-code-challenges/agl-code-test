@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetApi.Sdk", "PetApi.Sdk\Pe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetApi.Sdk.Tests", "PetApi.Sdk.Tests\PetApi.Sdk.Tests.csproj", "{5A280AC9-8189-49EF-8C44-84C14F2220C5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetApp.DomainLogic", "PetApp.DomainLogic\PetApp.DomainLogic.csproj", "{D0ABAA3A-0809-4E0A-AF83-B906219B9C36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetApp.DomainLogic.Tests", "PetApp.DomainLogic.Tests\PetApp.DomainLogic.Tests.csproj", "{E7477268-2859-447E-9617-152A4F0A1153}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{5A280AC9-8189-49EF-8C44-84C14F2220C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A280AC9-8189-49EF-8C44-84C14F2220C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A280AC9-8189-49EF-8C44-84C14F2220C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0ABAA3A-0809-4E0A-AF83-B906219B9C36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0ABAA3A-0809-4E0A-AF83-B906219B9C36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0ABAA3A-0809-4E0A-AF83-B906219B9C36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0ABAA3A-0809-4E0A-AF83-B906219B9C36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7477268-2859-447E-9617-152A4F0A1153}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7477268-2859-447E-9617-152A4F0A1153}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7477268-2859-447E-9617-152A4F0A1153}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7477268-2859-447E-9617-152A4F0A1153}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
